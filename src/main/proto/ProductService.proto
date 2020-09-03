@@ -1,0 +1,26 @@
+syntax="proto3";
+option java_package = "com.deloitte.product.stubs";
+option java_multiple_files = true;
+
+message Product {
+
+	string name = 1;
+	string type = 2;
+	int32 price = 3;
+}
+
+message ProductRequest {
+
+	Product input = 1;
+	
+}
+
+message ProductResponse {
+
+	Product output = 1;
+
+}
+
+service ProductService {
+	rpc searchProductCatalog(ProductRequest) returns ( stream ProductResponse );
+}
